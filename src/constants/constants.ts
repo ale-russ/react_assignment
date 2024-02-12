@@ -1,0 +1,21 @@
+export const items = [
+  { url: "/images/apple.jpg", label: "Apple" },
+  { url: "/images/game-devices.jpg", label: "game device" },
+  { url: "/images/smart_phone.jpg", label: "Smartphone" },
+  { url: "/images/smart_watch.jpg", label: "smart watch" },
+  { url: "/images/tablet.jpg", label: "tablet" },
+  { url: "/images/audios.jpg", label: "audio Equipments" },
+  { url: "/images/cameras.jpg", label: "camera" },
+  { url: "/images/computers.jpg", label: "computer" },
+  { url: "/images/videos_equipments.jpg", label: "video equipment" },
+  {
+    url: "/images/large_home_appliances.jpg",
+    label: "Large home appliances",
+  },
+  { url: "/images/seasonal_appliances.jpg", label: "Seasonal appliances" },
+  { url: "/images/home_appliances.jpg", label: "Home appliances" },
+  { url: "/images/pc_peripherals.jpg", label: "PC Peripherals" },
+  { url: "/images/kitchen_appliances.jpg", label: "kitchen appliances" },
+  { url: "/images/health&beauty.jpg", label: "Health & Beauty" },
+  { url: "/images/etc.jpg", label: "etc" },
+];

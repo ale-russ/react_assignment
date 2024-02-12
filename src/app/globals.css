@@ -2,32 +2,165 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    background: 255, 255, 255;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.swiper {
+  width: 50%;
+  height: 100%;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+
+  /* Center slide text vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  color: white !important;
+  width: 50px !important;
+  height: 50px !important;
+  border-radius: 50%;
+  background-color: rgba(51, 51, 51, 0.5);
+  font-size: 12px !important;
+}
+
+.swiper-slide-prev img,
+.swiper-slide-next img {
+  opacity: 0.5; /* Adjust opacity for previous and next slides */
+}
+
+.swiper-button-next:after,
+.swiper-button-prev:after {
+  font-size: 16px !important;
+}
+
+.banner-swiper {
+  overflow: visible !important;
+}
+
+.box-title {
+  font-weight: 600;
+  font-size: 18px;
+  color: rgb(51, 51, 51);
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow-wrap: break-word;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  -webkit-line-clamp: 2;
+  line-height: 24px;
+  font-size: 24px;
+  line-height: 32px;
+}
+
+.box-subtitle {
+  margin-top: 8px;
+  font-weight: 500;
+  font-size: 12px;
+  color: rgb(153, 153, 153);
+  width: 100%;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow-wrap: break-word;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  -webkit-line-clamp: 2;
+  line-height: 20px;
+}
+
+.box-tags {
+  display: inline-block;
+  background-color: rgb(255, 247, 247);
+  padding: 3px 4px;
+  margin-right: 4px;
+  font-weight: 600;
+  font-size: 10px;
+  line-height: 10px;
+  text-align: center;
+  border-radius: 2px;
+  letter-spacing: -0.3px;
+}
+
+.box-preface {
+  margin-top: 8px;
+  font-size: 12px;
+  padding: 4px 6px;
+  display: inline-flex;
+  -webkit-box-align: center;
+  align-items: center;
+  border: 1px solid rgb(238, 238, 238);
+  border-radius: 2px;
+}
+
+.box-preface img {
+  width: 14px;
+  height: 14px;
+  margin-right: 3px;
+}
+
+.box-freetrail {
+  display: inline-block;
+  color: rgb(66, 66, 66);
+  background-color: rgb(247, 247, 247);
+  padding: 3px 4px;
+  margin-right: 4px;
+  font-weight: 600;
+  font-size: 10px;
+  line-height: 10px;
+  text-align: center;
+  border-radius: 2px;
+  letter-spacing: -0.3px;
+}
+
+.box-rating {
+  display: flex;
+  font-weight: 500;
+  font-size: 11px;
+  color: rgba(71, 71, 71, 0.9);
+  margin-top: 12px;
+}
+
+@font-face {
+  font-family: "Ornitons Serial Regular";
+  src: local("Ornitons Serial Regular"),
+    url("/fonts/OrnitonsSerial-Regular.woff") format("woff"),
+    url("/fonts/OrnitonsSerial-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.return-new {
+  width: 40%;
+  display: flex;
+  justify-content: start;
+  background: rgb(0, 158, 138);
+  border-radius: 2px;
+  font-weight: 500;
+  align-items: center;
+  letter-spacing: -0.3px;
+  color: rgb(255, 255, 255);
+  font-size: 12px;
+  padding: 4px;
+}
+
+.return-new img {
+  height: 12px;
+  width: 12px;
 }
