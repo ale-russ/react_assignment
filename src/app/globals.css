@@ -164,3 +164,21 @@
   height: 12px;
   width: 12px;
 }
+
+.out-of-stock {
+  width: 100%;
+  border-radius: 2px;
+  background-color: rgba(51, 51, 51, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 12px 0px;
+}
+
+.out-of-stock p {
+  padding: 2px;
+  font-weight: 500;
+  color: rgb(255, 255, 255);
+  font-size: 15px;
+}

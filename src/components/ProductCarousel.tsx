@@ -1,24 +1,15 @@
-"use client";
-
-import { getStoreItems } from "@/api/api";
-import { items } from "@/constants/constants";
-import React, { useEffect, useState } from "react";
+import React from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import {
   MdOutlineArrowBackIos,
   MdOutlineArrowForwardIos,
 } from "react-icons/md";
 
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Pagination, Navigation } from "swiper/modules";
-
-interface StoreItem {
-  id: number;
-  type: string;
-  code: string;
-  title: string;
-  subtitle: string;
-  viewType: string;
-  items: {
+interface ProductCarouselProps {
+  title?: string;
+  subtitle?: string;
+  items?: {
     body: null;
     collectionId: number;
     createdAt: string;
@@ -38,6 +29,7 @@ interface StoreItem {
       prdType: number;
       preface: string;
       prefaceIconUrl: string;
+      isExistResidual: boolean;
       media: {
         uri: string;
       }[];
@@ -54,60 +46,26 @@ interface StoreItem {
     updatedAt: string;
     uuid: string;
   }[];
-  // Add more properties as needed
 }
 
-const MacBooks = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [storeItems, setStoreItems] = useState<StoreItem[]>([]);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const newData = await getStoreItems();
-        setStoreItems(newData.items);
-      } catch (error) {
-        console.log("error ", error);
-      }
-    };
-    fetchData();
-  }, []);
-
-  useEffect(() => {
-    // console.log("storeItems updated: ", storeItems);
-  }, [storeItems]);
-
-  const handleNext = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === items.length - 1 ? 0 : prevIndex + 1
-    );
-  };
-
-  const handlePrev = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? items.length - 1 : prevIndex - 1
-    );
-  };
-
-  const filteredItems = storeItems.filter(
-    (item) => item.type === "SINGLE" && item.viewType === "TILE"
-  );
-
-  console.log("filteredItems ", filteredItems);
+const ProductCarousel: React.FC<ProductCarouselProps> = ({
+  title,
+  subtitle,
+  items,
+}) => {
+  console.log("items: ", title, " ", items);
   return (
     <div className="flex justify-between items-center mx-auto md:mx-0 lg:mx-auto lg:max-w-4xl xl:max-w-5xl sm:w-2/4 md:w-full mb-8">
       <section className="flex flex-col justify-between items-center w-[240px] space-y-56">
         <div>
-          <h3 className="box-title"> {filteredItems[8]?.title}</h3>
-          <p className="box-subtitle">{filteredItems[8]?.subtitle}</p>
+          <h3 className="box-title"> {title}</h3>
+          <p className="box-subtitle">{subtitle}</p>
         </div>
-
         <div className="flex items-center space-x-4">
           <MdOutlineArrowBackIos color="rgb(153, 153, 153)" />
           <MdOutlineArrowForwardIos color="rgb(153, 153, 153)" />
         </div>
       </section>
-
       <Swiper
         className="lg:w-[100%] md:w-full "
         slidesPerView={4}
@@ -122,8 +80,9 @@ const MacBooks = () => {
           nextEl: ".swiper-button-next",
         }}
       >
-        {filteredItems &&
-          filteredItems[8]?.items.map((item, index) => {
+        {items &&
+          items?.map((item, index) => {
+            console.log("items: ", item.name);
             return (
               <div key={index}>
                 {item.publication.media[0].uri && (
@@ -135,13 +94,19 @@ const MacBooks = () => {
                           src={item.publication.media[0].uri}
                           alt="image"
                         />
-                        {item.publication.tagsOnImage.length != 0 && (
+
+                        {item.publication?.tagsOnImage.length != 0 && (
                           <div className="return-new relative bottom-8 z-20">
                             <img
                               src="/images/return-new.svg"
                               alt="return-new"
                             />
                             <p>returnable</p>
+                          </div>
+                        )}
+                        {!item.publication.isExistResidual && (
+                          <div className="out-of-stock relative bottom-20 z-50">
+                            <p>Temporarily out of stock</p>
                           </div>
                         )}
 
@@ -210,4 +175,4 @@ const MacBooks = () => {
   );
 };
 
-export default MacBooks;
+export default ProductCarousel;
