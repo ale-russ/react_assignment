@@ -66,14 +66,14 @@ const ProductCarousel: React.FC<ProductCarouselProps> = ({
       window.removeEventListener("resize", handleResize);
     };
   }, []);
-  console.log("smallScreen: ", isSmallScreen);
+
   return (
     <div
       className={`flex ${
         isSmallScreen ? "flex-col" : "flex-row"
       } justify-between items-center md:items-start sm:items-start mx-auto md:mx-0 lg:mx-auto lg:max-w-4xl xl:max-w-5xl sm:w-2/4 md:w-full mb-8`}
     >
-      <section className="flex flex-col justify-between items-center md:items-start sm:items-start w-[240px] md:w-full space-y-56">
+      <section className="flex flex-col justify-between items-center md:items-start sm:items-start !w-[270px] md:w-full space-y-56 !pr-5">
         <div>
           <h3 className="box-title"> {title}</h3>
           <p className="box-subtitle">{subtitle}</p>
