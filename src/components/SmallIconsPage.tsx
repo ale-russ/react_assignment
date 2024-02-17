@@ -27,8 +27,8 @@ const SmallIconsPage = () => {
   }, []);
 
   return (
-    <div className="h-48 md:h-56 flex items-center justify-center top-16 overflow-x-auto bg-white text-gray-700">
-      <div className="lg:flex items-center md:grid grid-cols-5 gap-y-4">
+    <div className="h-56 lg:h-48 flex items-center justify-center top-16 overflow-x-auto bg-white text-gray-700">
+      <div className="lg:flex md:flex items-center sm:grid sm:grid-cols-5 gap-y-4 mx-auto lg:mx-auto lg:max-w-4xl xl:max-w-5xl md:w-full lg:w-11/12">
         {shortcuts &&
           shortcuts.map((item) => (
             <Link href={item.linkUrl} key={item.title}>

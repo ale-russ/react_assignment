@@ -69,7 +69,6 @@ const ProductPage = () => {
   return (
     <main className="bg-white h-screen">
       {storeItems.map((items, index) => {
-        // console.log("ITEMS: ", index, " ", items);
         return (
           items.type === "SINGLE" &&
           items.viewType === "TILE" && (

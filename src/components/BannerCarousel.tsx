@@ -15,8 +15,8 @@ interface BannerCarousel {
 
 const BannerCarousel = () => {
   const [data, setData] = useState<BannerCarousel[]>([]);
-  const [prvIndex, setPrvIndex] = useState(-1);
-  const [nextIndex, setNextIndex] = useState(-1);
+  // const [prvIndex, setPrvIndex] = useState(-1);
+  // const [nextIndex, setNextIndex] = useState(-1);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -34,7 +34,7 @@ const BannerCarousel = () => {
   return (
     <div className="flex justify-center items-center relative overflow-hidden">
       <Swiper
-        className="banner-swiper"
+        className="lg:!overflow-visible overflow-hidden mx-auto lg:mx-auto lg:max-w-4xl xl:max-w-5xl sm:w-2/4 md:w-full lg:w-11/12"
         spaceBetween={30}
         centeredSlides={true}
         autoplay={{

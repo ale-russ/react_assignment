@@ -11,6 +11,7 @@ export const getShortCutsData = async () => {
   const data = await response.json();
   return data;
 };
+
 export const getStoreItems = async () => {
   const response = await fetch(`${baseUrl}/collections?prearrangedDiscount`);
   const data = await response.json();

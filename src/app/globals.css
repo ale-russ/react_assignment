@@ -41,6 +41,13 @@
   font-size: 12px !important;
 }
 
+@media screen and (max-width: 959px) {
+  .swiper-button-prev,
+  .swiper-button-next {
+    visibility: hidden;
+  }
+}
+
 .swiper-slide-prev img,
 .swiper-slide-next img {
   opacity: 0.5; /* Adjust opacity for previous and next slides */
